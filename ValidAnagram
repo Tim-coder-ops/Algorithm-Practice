@@ -1,0 +1,34 @@
+//Given two strings s and t , write a function to determine if t is an anagram of s.
+//You may assume the string contains only lowercase alphabets.
+
+
+public class Solution {
+    public bool IsAnagram(string s, string t) {
+        
+        bool isAnagram = true;
+        List<int> usedIndexs = new List<int>();
+        
+        if(s.Length != t.Length) return false;
+        
+        for(int i = 0; i < s.Length; i++)
+        {
+            isAnagram = false;
+            
+            for(int j = 0; j < t.Length; j++)
+            {
+                if(!usedIndexs.Contains(j) && s[i] == t[j] )
+                {
+                    isAnagram = true;
+                    usedIndexs.Add(j);
+                    break;
+                } 
+            }
+            
+            if(isAnagram == false) return false;
+            
+        }
+        
+        return isAnagram;
+        
+    }
+}
