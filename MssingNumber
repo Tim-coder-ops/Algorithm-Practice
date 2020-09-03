@@ -1,0 +1,24 @@
+// Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
+
+public class Solution {
+    public int MissingNumber(int[] nums) {
+        
+        int maxNum = 0;
+
+       for(int i = 0; i <= nums.Length; i++)
+       {
+           bool numExists = false;
+           
+           for(int j = 0; j < nums.Length; j++)
+           {
+               if(i == nums[j]) numExists = true;
+           }
+           
+           if(numExists == false) return i;
+           
+           maxNum++;
+       }
+        
+        return maxNum + 1;
+    }
+}
