@@ -1,0 +1,17 @@
+//Given an array of integers, find if the array contains any duplicates.
+
+//Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
+
+
+public bool ContainsDuplicate(int[] nums) {
+        
+        for(int i = 0; i < nums.Length; i++){
+            
+            for(int j = 0; j < nums.Length; j++)
+            {
+                if(i != j && nums[j] == nums[i]) return true;
+            }
+        }
+        
+        return false;
+    }
