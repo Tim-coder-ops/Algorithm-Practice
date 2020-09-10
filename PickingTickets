@@ -1,0 +1,44 @@
+//Given an unsorted list return the maximum length of a subsequence.
+// Valid subsequences are either the same number or one number higher. 
+// Ex Input: [88,5,4,8,4]
+// Ex Output: 3   because [4,4,5] and [8,8] are the subsequences
+
+static int maxTickets(List<int> tickets)
+        {
+            int count = 0;
+            for (int i = 0; i < tickets.Count; i++)
+            {
+                for (int j = i + 1; j < tickets.Count; j++)
+                {
+                    if (tickets[j] < tickets[i])
+                    {
+                        int temp = tickets[j];
+                        for (int k = j - 1; k >= i; k--)
+                        {
+                            tickets[k + 1] = tickets[k];
+                        }
+
+                        tickets[i] = temp;
+                    }
+
+                }
+            }
+
+            int maxCount = 0;
+            for (int i = 0; i < tickets.Count; i++)
+            {
+                if(i + 1 < tickets.Count)
+                {
+                    if (tickets[i] == tickets[i + 1] || tickets[i] + 1 == tickets[i + 1]) maxCount++;
+                    else
+                    {
+                        if(maxCount > count) count = maxCount +1;
+                        maxCount = 0;
+                    }
+                        
+                }
+               
+            }
+
+            return count;
+        }
