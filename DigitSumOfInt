@@ -1,0 +1,24 @@
+//find the sum digits in an integer
+
+output is integer
+
+ex input = 154 1
+ex output = 10
+
+result = 10
+
+	
+	public static int FindSum(int input)
+	{
+		int result = 0;
+		
+		while(input != 0)
+		{
+			result += input % 10;
+			input /= 10;
+		
+		}
+		
+		return result;
+	
+	}
