@@ -1,0 +1,27 @@
+//Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
+
+public int AddDigits(int num) {
+        
+        int count = 10;
+        while(count > 0)
+        {
+            List<int> numbers = new List<int>();
+            
+            while(num != 0)
+            {
+                numbers.Add(num % 10);
+                num /= 10;
+            }
+            
+            for(int i = 0; i < numbers.Count; i++)
+            {
+                num += numbers[i];
+            }
+            
+            if(num < 10) return num;
+            
+            count--;
+        }
+        
+        return num; 
+    }
