@@ -1,0 +1,46 @@
+//Given the array queries of positive integers between 1 and m, you have to process all queries[i] (from i=0 to i=queries.length-1) according to the following rules:
+//
+//In the beginning, you have the permutation P=[1,2,3,...,m].
+//For the current i, find the position of queries[i] in the permutation P (indexing from 0) and then move this at the beginning of the permutation P.
+//Notice that the position of queries[i] in P is the result for queries[i].
+
+public class Solution {
+    public int[] ProcessQueries(int[] queries, int m) {
+        
+        int[] p = new int[m];
+        
+        for(int i = 0; i < p.Length; i++)
+        {
+            p[i] = i+1;
+        }
+        
+        int[] output = new int[queries.Length];
+        
+        
+        for(int j = 0; j < queries.Length; j++)
+        {
+           for(int k = 0; k < p.Length; k++)
+           {
+               if(p[k] == queries[j])
+               {
+                  output[j] = k;
+                   
+                   List<int> temp = new List<int>();
+            
+                   temp.Add(p[k]);
+                   for(int g = 0; g < p.Length; g++)
+                   {
+                       if(temp[0] != p[g]) temp.Add(p[g]);
+                   }
+                  p = temp.ToArray();
+                  break;
+                   
+               } 
+               
+           }
+            
+        }
+        
+        return output;
+    }
+}
