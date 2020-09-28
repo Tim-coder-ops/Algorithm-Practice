@@ -1,0 +1,33 @@
+//Algo that takes an int array and returns the max and the min
+//output will be an int array (max, min)
+//There will always be 2 numbers in the array
+//
+//ex input: 1,8,19,0,9,45,-5
+//ex output: 45, -5
+//
+//signature with output = int array, input = int array
+//create a new array
+//set values of the new array to elements of input array
+//for loop for comparison
+//return result
+//
+//max:45
+//min:-5
+
+public static int[] GetMaxAndMin(int[] input)
+{
+	int[] result = new int[2];
+	
+	result[0] = input[0];
+	result[1] = input[0];
+	
+	for(int i = 0; i < input.Length; i++)
+	{
+		if(input[i] > result[0]) result[0] = input[i];
+		else if(input[i] < result[1]) result[1] = input[i];
+	}
+	
+	return result;
+}
+
+//This was used for creating a youtube video on intro to whiteboarding
