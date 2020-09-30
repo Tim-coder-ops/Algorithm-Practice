@@ -1,0 +1,35 @@
+//Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
+
+//Input: "Let's take LeetCode contest"
+//Output: "s'teL ekat edoCteeL tsetnoc"
+
+//Create int for previous space
+//Create reverseString
+//for loop for finding the spaces
+//nested for loop to reverse words
+//Add spaces
+//at the end of loop set temp int to previous space
+//return reversed string
+
+
+
+public string ReverseWords(string s) {
+        
+        int previousSpace = -1;
+        string reverseString = "";
+        
+        for(int i = 0; i <= s.Length; i++)
+        {
+            if(i == s.Length || s[i] == ' ' )
+            {
+                for(int j = i - 1; j > previousSpace ; j--)
+                {
+                    reverseString += s[j];
+                }
+                if(i != s.Length)reverseString += " ";
+                previousSpace = i;
+            }
+        }
+        
+        return reverseString;
+    }
