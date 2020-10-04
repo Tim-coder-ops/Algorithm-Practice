@@ -1,0 +1,15 @@
+Implement function ToLowerCase() that has a string parameter str, and returns the same string in lowercase.
+
+
+public string ToLowerCase(string str) {
+        
+        string result = "";
+        
+        for(int i = 0; i < str.Length; i++)
+        {
+            if(str[i] == Char.ToUpper(str[i])) result += Char.ToLower(str[i]);
+            else result += str[i];
+        }
+        
+        return result;
+    }
