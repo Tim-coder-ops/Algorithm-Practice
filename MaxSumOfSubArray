@@ -1,0 +1,27 @@
+Given an array of integers of size ‘n’.
+Our aim is to calculate the maximum sum of 2 
+consecutive elements in the array.
+
+Input  : arr[] = {100, 200, 300, 400}
+
+Output : 700
+
+
+// Create int to hold max value and set to first element
+//For loop to compare 2 consecutive values 
+	add 2 consecutive values and check if it is larger than the max	
+		if it is larger replace the max with the value
+return max
+
+
+public static int GetCombinedMax(int[] arr)
+{
+	int max = arr[0];
+	
+	for(int i = 1; i < arr.Length; i++)
+	{
+		if(arr[i] + arr[i-1] > max) max = arr[i] + arr[i-1];
+	}
+	
+	return max;
+}
