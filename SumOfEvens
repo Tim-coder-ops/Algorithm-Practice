@@ -1,0 +1,26 @@
+given a range of ints return the sum of all even ints
+given the min and max number
+
+input = 2-5 include min and max                               //10 - 15
+                                                              
+output = 6  
+
+Signature that outputs an int and takes in 2 ints
+create an int called result
+for loop starting at the min and ending at the max
+	check if number is even with mod
+		if it is even add it to the result
+return the result 
+
+
+public static int GetEvenSum(int min, int max)
+{
+	int result = 0;
+	
+	for(int i = min; i <= max; i++)
+	{
+		if(i % 2 == 0) result += i;
+	}
+	
+	return result;
+}
