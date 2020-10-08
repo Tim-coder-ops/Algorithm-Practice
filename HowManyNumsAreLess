@@ -1,0 +1,19 @@
+Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it.
+
+ public int[] SmallerNumbersThanCurrent(int[] nums) {
+        
+        int[] results = new int[nums.Length];
+        
+        for(int i = 0; i < nums.Length; i++)
+        {
+            for(int j = 0; j < nums.Length; j++)
+            {
+                if(nums[j] < nums[i]) results[i]++;
+            }
+        }
+        
+        return results;
+    }
+    
+    Time Compexity: O(n^2)
+    Space COmplecity: O(n)
