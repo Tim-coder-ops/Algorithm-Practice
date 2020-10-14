@@ -1,0 +1,26 @@
+// Given a word or multiple words return if it is a palindrome. This will not include spaces or special characters
+
+
+
+
+public static bool IsPlandrome(string input)
+        {
+            input = input.ToLower();
+            string strippedInput = "";
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (input[i] >= 'a' && input[i] <= 'z') strippedInput += input[i];
+        
+    }
+
+            for (int i = 0; i < strippedInput.Length/2; i++)
+            {
+                if (strippedInput[i] != strippedInput[strippedInput.Length - 1 - i]) return false;
+            }
+
+            return true;
+        }
+        
+        Time Complexity: O(n)
+        Space Complexity: O(n)
