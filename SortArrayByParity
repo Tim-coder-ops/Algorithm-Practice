@@ -1,0 +1,33 @@
+Given an array A of non-negative integers, return an array consisting of all the even elements of A, followed by all the odd elements of A.
+
+You may return any answer array that satisfies this condition.
+
+
+public int[] SortArrayByParity(int[] A) {
+        
+        int[] result = new int[A.Length];
+        int index = 0;
+        
+        for(int i = 0; i < A.Length; i++)
+        {
+            if(A[i] % 2 == 0 )
+            {
+                result[index] = A[i];
+                index++;
+            }
+        }
+        
+        for(int i = 0; i < A.Length; i++)
+        {
+            if(A[i] % 2 != 0 && A[i] != 0  || A[i] == 1 && A[i] != 0 )
+            {
+                result[index] = A[i];
+                index++;
+            }
+        }
+        
+        return result;
+    }
+    
+    Time Complexity: O(n)
+    Space Complexity: O(n)
