@@ -1,0 +1,39 @@
+-Given a string return how many instances of a word are in said string.
+-Given 2 string with the word repeated, and one with target word
+-return int
+-differnt word within the string
+-only single space in between words
+-If null or empty 
+
+input: I like tacos cause tacos are great, tacos
+output: 2
+
+public static int GetNumOfWords(string sentence, string key)
+        {
+            if (String.IsNullOrEmpty(sentence)) Console.WriteLine("Please input a valid string");
+
+            int counter = 0;
+
+            List<string> words = new List<string>();
+
+            string temp = "";
+
+            for (int i = 0; i < sentence.Length; i++)
+            {
+                if (sentence[i] != ' ') temp += sentence[i];
+                else 
+                {
+                    words.Add(temp);
+                    temp = "";
+                }
+                
+            }
+
+            for (int i = 0; i < words.Count; i++)
+            {
+                if (words[i] == key) counter++;
+            }
+
+            return counter;
+
+        }
