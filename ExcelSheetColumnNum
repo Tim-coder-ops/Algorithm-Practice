@@ -1,0 +1,47 @@
+Given a column title as appear in an Excel sheet, return its corresponding column number.
+
+For example:
+
+    A -> 1
+    B -> 2
+    C -> 3
+    ...
+    Z -> 26
+    AA -> 27
+    AB -> 28 
+    ...
+    
+    
+    //Multiply letter byt 26 for every letter higher than A
+
+//create an array with all letters
+//create an int to hold the total
+
+//for loop to interate over the string
+    //Compare the letter to the array
+        //If it matches do calculation and add to total
+        //If it is the last character then simply add
+// return total
+
+public int TitleToNumber(string s) {
+        
+        char[] letters = new char[]{'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+        int total = 0;
+        int power = 0;
+        
+        for(int i = s.Length -1; i >= 0; i--)
+        {
+            for(int j = 0; j < letters.Length; j++)
+            {
+                if(s[i] == letters[j])
+                {
+                    total += (j+1) * (int)Math.Pow(26, power); 
+                    break;
+                }
+            } 
+            
+            power++;
+        }
+        
+        return total;
+    }
