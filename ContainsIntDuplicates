@@ -16,3 +16,5 @@ public bool ContainsDuplicate(int[] nums) {
         
         return false;
     }
+
+// Previously did this on Leetcode but was not fast enough. This one is
