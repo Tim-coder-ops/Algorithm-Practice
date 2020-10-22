@@ -1,0 +1,40 @@
+Given a List of words, return the words that can be typed using letters of alphabet on only one row's of American keyboard like the image below.
+
+public string[] FindWords(string[] words) {
+        
+        List<char> row1 = new List<char>(){'q','w','e','r','t','y','u','i','o','p'};
+        List<char> row2 = new List<char>(){'a','s','d','f','g','h','j','k','l'};
+        List<char> row3 = new List<char>(){'z','x','c','v','b','n','m'};
+        
+        List<int> wordsInt = new List<int>();
+        
+        for(int i = 0; i < words.Length; i++)
+        {
+            string word = words[i];
+            int count = word.Length;
+            int first = 0;
+            int second = 0;
+            int third = 0;
+            
+            for(int j = 0; j < word.Length; j++)
+            {
+                char temp = char.ToLower(word[j]);
+                if(row1.Contains(temp)) first++;
+                else if(row2.Contains(temp)) second++;
+                else if(row3.Contains(temp)) third++;
+            }
+            if(first == count) wordsInt.Add(i);
+            else if(second == count) wordsInt.Add(i);
+            else if(third == count) wordsInt.Add(i);
+        }
+        
+        
+            string[] result = new string[wordsInt.Count];
+            for(int i = 0;i < result.Length; i++ )
+            {
+                result[i] = words[wordsInt[i]];
+            }
+            
+            return result;
+        
+    }
