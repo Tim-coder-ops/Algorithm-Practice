@@ -1,0 +1,25 @@
+Given a non-empty string of lowercase and non-negative integer representing a key, write a function that returns a new string obtained by shifting every letter in the iinput string by k positions in the alphabet, where k is the key
+
+Note the letters should wrap around the alphabet 
+
+ex input: string = xyz key = 2
+ex output = zab
+
+public static string CaesarCypherEncryptor(string str, int key) {
+		
+		StringBuilder word = new StringBuilder();
+		if(key > 26) key %= 26;
+		
+		for(int i = 0; i < str.Length; i++)
+		{
+			if(str[i] + key <= 'z') word.Append((char)(str[i] + key));
+			else 
+			{
+				int temp = key - ((int)'z' - (int)str[i]);
+				word.Append((char)('a' + temp-1));
+			}
+		}
+		
+		return word.ToString();
+		
+	}
