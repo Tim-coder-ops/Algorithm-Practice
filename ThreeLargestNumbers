@@ -1,0 +1,44 @@
+Write a function that takes in an array of at least 3 integers and, without sorting the input array, returns a sorted array of the three largest integers in the input array.
+
+ex input: [141, 1, 17, -7, -17, -27, 18, 541, 8, 7, 7]
+ex output: [18, 141, 541]
+
+using System;
+
+public class Program {
+	public static int[] FindThreeLargestNumbers(int[] array) {
+		int[] result = new int[]{Int32.MinValue, Int32.MinValue, Int32.MinValue};
+		int max = 0;
+		int mid = 0;
+		
+		for(int i = 0; i < array.Length; i++)
+		{
+			if(array[i] > result[2])
+				 {
+					 result[2] = array[i];
+					 max = i;
+				 } 
+		}
+		
+		for(int i = 0; i < array.Length; i++)
+		{
+			if(array[i] > result[1] && array[i] <= result[2] && i != max)
+			{
+				result[1] = array[i];
+				mid = i;
+			}
+				
+		}
+		
+		
+		for(int i = 0; i < array.Length; i++)
+		{
+			if(array[i] > result[0] && array[i] <= result[1] && i != mid) result[0] = array[i];
+		}
+		
+		return result;
+	}
+}
+
+time complexity: O(n)
+Space Complexity: O(1)
